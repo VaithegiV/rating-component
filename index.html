@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rating-component</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="star">
+      <img src="images/icon-star.svg" alt="star">
+    </div>
+    <h2>How did we do?</h2>
+    <p> Please let us know how we did with your support request. All feedback is appreciated 
+      to help us improve our offering!</p>
+      <div class="buttons">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+      </div>
+      <button id="submitBtn" >SUBMIT</button>
+      
+  </div>
+  <script>
+    let focusedButton = null;
+
+const buttons = document.querySelectorAll('button:not(#submitBtn)');
+const submitBtn = document.getElementById('submitBtn');
+
+buttons.forEach(button => {
+    button.addEventListener('focus', function() {
+        focusedButton = this.textContent;
+    });
+});
+
+submitBtn.addEventListener('click', function() {
+    if (focusedButton) {
+        localStorage.setItem('focusedButton', focusedButton);
+        window.location.href = 'second.html';
+    } else {
+        alert('Please click on a rating before submitting.');
+    }
+});
+  </script>
+</body>
+</html>

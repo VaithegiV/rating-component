@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit-Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img class="thankimage" src="images/illustration-thank-you.svg" alt="Thankyou">
+    <div id="result"></div>
+  <h1 class="thankyou">Thank you!</h1>
+  <p class="thanknote">We appreciate you taking the time to give a rating. If you ever need more support, 
+    don’t hesitate to get in touch!</p>
+  </div>
+  
+
+  <script>
+  const resultDiv = document.getElementById('result');
+        const focusedButton = localStorage.getItem('focusedButton');
+
+        if (focusedButton) {
+            resultDiv.innerHTML = `You Selected ${focusedButton} out of 5`;
+        }
+
+  </script>
+</body>
+</html>
